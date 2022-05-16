@@ -18,8 +18,9 @@ BOT_TOKEN = '5351494229:AAFBJrGK77ik5nO5FupumIvXrUAjs6LBQ_M'
 CHAT_ID = '-1001533043019'
 PAIR = 'BTC/USD'
 ACCOUNT_BALANCE = 10000
-TAKE_PROFIT = 1.80
-STOP_LOSS = -1
+TAKE_PROFIT = 3.60
+STOP_LOSS = -2 # dipende dalla volatilita (? 1/2 di https://www.buybitcoinworldwide.com/volatility-index/ ?)
+RISK = -0.5
 CLEAR_SCREEN = '\033[2J'
 RED = '\033[31m'
 GREEN = '\033[32m'
@@ -121,10 +122,10 @@ def tp_sl_short():
 # LOT SIZE CALCULATOR
 def lot_size():
     spread = price - sl
-    if (((ACCOUNT_BALANCE * STOP_LOSS) / 100) / spread) < 0:
-        return str(round(((-1 * ACCOUNT_BALANCE * STOP_LOSS) / 100) / spread, 2))
+    if (((ACCOUNT_BALANCE * RISK) / 100) / spread) < 0:
+        return str(round(((-1 * ACCOUNT_BALANCE * RISK) / 100) / spread, 2))
     else:
-        return str(round(((ACCOUNT_BALANCE * STOP_LOSS) / 100) / spread, 2))
+        return str(round(((ACCOUNT_BALANCE * RISK) / 100) / spread, 2))
 
     
 
@@ -193,7 +194,7 @@ try:
                     if bull_mkt:
                         print('da bear a bull')
                         print(ora)
-                        if rsi > 60 and ema < price:
+                        if rsi >= 70 and ema < price:
                             pos_open= True # // integrare in funzioni close/open long/short
                             long_open = True
                             entry_price = price
@@ -204,7 +205,7 @@ try:
                     if bear_mkt:
                         print('da bull a bear')
                         print(ora)
-                        if rsi < 40 and ema > price:
+                        if rsi <= 30 and ema > price:
                             pos_open = True # // integrare in funzioni close/open long/short
                             short_open = True
                             entry_price = price
