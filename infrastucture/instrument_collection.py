@@ -1,5 +1,4 @@
 import json
-from constants.config import API_KEY
 from models.instruments import Instrument
 
 class InstrumentCollection:
@@ -21,7 +20,7 @@ class InstrumentCollection:
 
     def CreateFile(self, data, path ):
         if data is None:
-            print('NOn è possibile create il file Instrument', data)
+            print('Non è possibile create il file Instrument', data)
             return 
 
         instrument_dict = {}

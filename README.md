@@ -1,8 +1,9 @@
-# trading_bot
+# TRADING BOT
 
 video strategia
 https://youtu.be/zqUC8dtPphI
 
+versione python consigliata: *3.9.7*
 
 
 ## LINK UTILI
