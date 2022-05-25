@@ -6,6 +6,9 @@ https://youtu.be/zqUC8dtPphI
 versione python consigliata: *3.9.7*
 
 
+La strategia va scritta in scalping.py
+
+
 ## LINK UTILI
 -  [Connector python](https://github.com/binance/binance-connector-python)
 -  [Binance API](https://binance-connector.readthedocs.io)

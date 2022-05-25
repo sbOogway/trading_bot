@@ -154,3 +154,4 @@ def run_ma_sim(curr_list=["EUR", "USD"],
                 if pair in ic.instrument_dict.keys():
                     analyse_pair(
                         ic.instrument_dict[pair], g, ma_long, ma_short, filepath)
+        
