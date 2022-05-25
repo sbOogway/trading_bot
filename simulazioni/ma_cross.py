@@ -1,7 +1,7 @@
 import pandas as pd
 import os.path
 from infrastucture.instrument_collection import InstrumentCollection as ic
-
+from simulazioni.ma_excel import create_ma_res
 
 class MAResult:
     def __init__(self, df_trades, pairname, ma_l, ma_s, granularity):
@@ -141,10 +141,10 @@ def analyse_pair(instrument, granularity, ma_long, ma_short, filepath):
 
 
 # funzione principale
-def run_ma_sim(curr_list=["EUR", "USD"],
-               granularity=["H1", "H4"],
-               ma_long=[20, 40, 80, 120, 150],
-               ma_short=[10, 20, 30, 40],
+def run_ma_sim(curr_list=["EUR", "USD", "BTC"],
+               granularity=["M5", "H1", "H4"],
+               ma_long=[20, 40],
+               ma_short=[10],
                filepath="./Data"):
     ic.LoadInstrument(ic, "./Data")
     for g in granularity:
@@ -152,6 +152,6 @@ def run_ma_sim(curr_list=["EUR", "USD"],
             for p2 in curr_list:
                 pair = f"{p1}_{p2}"
                 if pair in ic.instrument_dict.keys():
-                    analyse_pair(
-                        ic.instrument_dict[pair], g, ma_long, ma_short, filepath)
+                    analyse_pair(ic.instrument_dict[pair], g, ma_long, ma_short, filepath)
+        create_ma_res(g)
         

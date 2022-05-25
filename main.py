@@ -1,16 +1,19 @@
 from api.oanda_api import OandaApi
-
 from infrastucture.instrument_collection import instrumentCollection
-
 from simulazioni.ma_cross import run_ma_sim
+from dateutil import parser
+from infrastucture.collect_data import run_collection
 
 if __name__ == '__main__':
     api = OandaApi()
     
+    instrumentCollection.LoadInstrument("./Data")
+
+    # decommenta qua sotto per ottenere le candele (modifiare i dati direttamente nella funzione)
+    # TODO: togliere hard code dalla funzione sotto
+    run_collection(instrumentCollection, api)
     
 
-    # instrumentCollection.CreateFile(api.get_account_instruments(), "./Data")
-    # instrumentCollection.LoadInstrument("./Data")
-    # instrumentCollection.PrintInstrument()
+    # run_ma_sim()
 
-    run_ma_sim(curr_list=['EUR', "USD", "AUD", "GBP", "AUD", "JPY", "CAD", "BTC"])
+    
