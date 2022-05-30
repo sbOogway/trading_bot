@@ -18,3 +18,12 @@ La strategia va scritta in scalping.py
 ## CODICI API
 - OANDA ACCOUNT ID =  101-012-21494048-001
 - OANDA API KEY = 062fcaf65c7a4f1e56230ca193f72e9b-70d22f09f9d48c22fe72aabf5b1821e9
+
+
+## RICONOSCIMENTO PATTERN
+
+La candela è descritta così:
+
+![image](https://user-images.githubusercontent.com/51402874/171029145-110645f4-118f-4e12-ada2-8ce25d05b811.png)
+
+
