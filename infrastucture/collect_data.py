@@ -122,4 +122,4 @@ def run_collection(ic: InstrumentCollection, api: OandaApi):
             if pair in ic.instrument_dict.keys():
                 for granularity in [ "M5", "H1", "H4"]:
                     print(pair, granularity)
-                    collect_data(pair, granularity, "2016-01-07T00:00:00Z","2016-12-31T00:00:00Z" , "./Data/", api)
+                    collect_data(pair, granularity, "2016-01-07T00:00:00Z","2021-12-30T00:00:00Z" , "./Data/", api)
